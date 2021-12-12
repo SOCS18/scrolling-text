@@ -29,5 +29,6 @@ public class ButtonManager : MonoBehaviour
         {
             textManager.health--;
         }
+        Debug.Log("Test github");
     }
 }
