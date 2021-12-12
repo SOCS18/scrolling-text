@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 994541247}
-  health: 210
+  isAlive: 1
+  health: 80
   healthLost: 90
 --- !u!114 &503440264
 MonoBehaviour:
