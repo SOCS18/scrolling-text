@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 503440263}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd450b3761d05c5408c5bd88de84ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtButton: {fileID: 1408848917}
   textManager: {fileID: 503440263}
+  healthDecreasing: 0
 --- !u!4 &503440265
 Transform:
   m_ObjectHideFlags: 0
