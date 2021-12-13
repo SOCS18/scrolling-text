@@ -8,10 +8,12 @@ public class ButtonManager : MonoBehaviour
     public GameObject hurtButton;
     public TextManager textManager;
     public bool healthDecreasing = false;
+    public Vector3 damageTextOriginLocation;
 
     void Start()
     {
         hurtButton.SetActive(true);
+        damageTextOriginLocation = textManager.damageText.transform.position;
     }
 
     void Update()
@@ -30,7 +32,6 @@ public class ButtonManager : MonoBehaviour
     {
         int finalHealth = textManager.health - textManager.healthLost;
 
-        
         textManager.damageText.gameObject.SetActive(true);
 
         if (finalHealth < 0)
@@ -40,7 +41,6 @@ public class ButtonManager : MonoBehaviour
 
         StartCoroutine(HurtOverTime(finalHealth));
         StartCoroutine(FadeText(1f, textManager.damageText));
-
     }
 
     IEnumerator HurtOverTime(int goalHealth)
@@ -60,6 +60,7 @@ public class ButtonManager : MonoBehaviour
         while (damage.color.a > 0.0f)
         {
             damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, damage.color.a - (Time.deltaTime / time));
+
             yield return null;
         }
     }
