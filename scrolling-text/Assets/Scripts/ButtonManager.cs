@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private GameObject hurtButton;
+    public GameObject hurtButton;
     public TextManager textManager;
     public bool healthDecreasing = false;
 
@@ -15,7 +15,7 @@ public class ButtonManager : MonoBehaviour
 
     void Update()
     {
-        if (healthDecreasing)
+        if (healthDecreasing || textManager.health == 0)
         {
             hurtButton.SetActive(false);
         }
@@ -28,6 +28,9 @@ public class ButtonManager : MonoBehaviour
     public void HurtButtonPressed()
     {
         int finalHealth = textManager.health - textManager.healthLost;
+
+        
+        textManager.damageText.gameObject.SetActive(true);
 
         if (finalHealth < 0)
         {

@@ -7,13 +7,21 @@ public class TextManager : MonoBehaviour
 {
     [SerializeField] private Text healthText;
     [SerializeField] private bool isAlive = true;
+    public ButtonManager buttonManager;
+    public Text damageText;
     public int health = 0;
     public int healthLost;
+
+    void Start()
+    {
+        damageText.gameObject.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = health.ToString();
+        damageText.text = healthLost.ToString();
 
         if (health == 0)
         {
