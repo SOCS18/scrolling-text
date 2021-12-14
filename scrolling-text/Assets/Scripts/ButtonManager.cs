@@ -78,12 +78,12 @@ public class ButtonManager : MonoBehaviour
         healthDecreasing = false;
     }
 
-    IEnumerator FadeText(float time, Text damage)
+    IEnumerator FadeText(float fadeTime, Text damage)
     {
         damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, 1);
         while (damage.color.a > 0.0f)
         {
-            damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, damage.color.a - (Time.deltaTime / time));
+            damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, damage.color.a - (Time.deltaTime / fadeTime));
 
             yield return null;
         }

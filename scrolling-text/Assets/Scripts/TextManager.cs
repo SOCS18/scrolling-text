@@ -24,7 +24,7 @@ public class TextManager : MonoBehaviour
     void Update()
     {
         healthText.text = health.ToString();
-        damageText.text = healthLost.ToString();
+        damageText.text = ("-" + healthLost.ToString());
 
         if (health == 0)
         {
