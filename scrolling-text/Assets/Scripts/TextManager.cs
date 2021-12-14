@@ -9,12 +9,15 @@ public class TextManager : MonoBehaviour
     [SerializeField] private bool isAlive = true;
     public ButtonManager buttonManager;
     public Text damageText;
+    public Text fatalText;
     public int health = 0;
     public int healthLost;
+    public int finalHealth;
 
     void Start()
     {
         damageText.gameObject.SetActive(false);
+        fatalText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

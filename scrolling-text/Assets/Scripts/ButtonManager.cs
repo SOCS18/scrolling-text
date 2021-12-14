@@ -30,17 +30,27 @@ public class ButtonManager : MonoBehaviour
 
     public void HurtButtonPressed()
     {
-        int finalHealth = textManager.health - textManager.healthLost;
+        textManager.finalHealth = textManager.health - textManager.healthLost;
 
         textManager.damageText.gameObject.SetActive(true);
 
-        if (finalHealth < 0)
+        if (textManager.finalHealth < 0)
         {
-            finalHealth = 0;
+            textManager.finalHealth = 0;
         }
 
-        StartCoroutine(HurtOverTime(finalHealth));
-        StartCoroutine(FadeText(1f, textManager.damageText));
+        if (textManager.finalHealth == 0)
+        {
+            Debug.Log("FATAL HIT");
+            textManager.fatalText.gameObject.SetActive(true);
+        }
+        else
+        {
+            textManager.fatalText.gameObject.SetActive(false);
+        }
+
+        StartCoroutine(HurtOverTime(textManager.finalHealth));
+        StartCoroutine(FadeText(1.25f, textManager.damageText));
     }
 
     IEnumerator HurtOverTime(int goalHealth)
