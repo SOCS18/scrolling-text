@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    private bool forLoopDone = false;
     public GameObject hurtButton;
     public TextManager textManager;
     public bool healthDecreasing = false;
     public Vector3 damageTextOriginLocation;
-    private int numButtons = 4;
 
     void Start()
     {
@@ -28,18 +26,6 @@ public class ButtonManager : MonoBehaviour
         {
             hurtButton.SetActive(true);
         }
-
-        if (healthDecreasing)
-        {
-            if (!forLoopDone)
-            {
-                for (int i = 0; i < numButtons; i++)
-                {
-                    Debug.Log("Generate button " + (i + 1));
-                }
-                forLoopDone = true;
-            }
-        }
     }
 
     public void HurtButtonPressed()
@@ -51,16 +37,6 @@ public class ButtonManager : MonoBehaviour
         if (textManager.finalHealth < 0)
         {
             textManager.finalHealth = 0;
-        }
-
-        if (textManager.finalHealth == 0)
-        {
-            Debug.Log("FATAL HIT");
-            textManager.fatalText.gameObject.SetActive(true);
-        }
-        else
-        {
-            textManager.fatalText.gameObject.SetActive(false);
         }
 
         StartCoroutine(HurtOverTime(textManager.finalHealth));
