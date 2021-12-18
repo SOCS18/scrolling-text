@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
-    [SerializeField] private Text healthText;
+    public Text healthText;
     [SerializeField] private bool isAlive = true;
     public ButtonManager buttonManager;
     public Text damageText;
