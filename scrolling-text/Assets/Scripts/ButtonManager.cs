@@ -8,12 +8,10 @@ public class ButtonManager : MonoBehaviour
     public GameObject hurtButton;
     public TextManager textManager;
     public bool healthDecreasing = false;
-    public Vector3 damageTextOriginLocation;
 
     void Start()
     {
         hurtButton.SetActive(true);
-        damageTextOriginLocation = textManager.damageText.transform.position;
     }
 
     void Update()
@@ -57,7 +55,7 @@ public class ButtonManager : MonoBehaviour
     IEnumerator FadeText(float fadeTime, Text damage)
     {
         damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, 1);
-        while (damage.color.a > 0.0f)
+        while (damage.color.a >= 0.0f)
         {
             damage.color = new Color(damage.color.r, damage.color.g, damage.color.b, damage.color.a - (Time.deltaTime / fadeTime));
 
